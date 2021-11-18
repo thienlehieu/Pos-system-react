@@ -1,6 +1,6 @@
 import React from "react";
 
-const Menu = ({ items }) => {
+const Menu = ({ items, onAdd, cartItems }) => {
   return (
     <div className="section-center">
       {items.map((item) => {
@@ -15,6 +15,7 @@ const Menu = ({ items }) => {
               </header>
               <p className="item-text">{desc}</p>
             </div>
+            <button className="addToCart" onClick={() => onAdd(item)}>Chọn mua</button>
           </article>
         );
       })}

@@ -9,6 +9,11 @@ body {
   color: hsl(209, 61%, 16%);
 }
 
+nav {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -53,6 +58,7 @@ p {
 }
 .title {
   text-align: center;
+  margin-top: -2rem;
   margin-bottom: 2rem;
 }
 
@@ -154,4 +160,66 @@ p {
   .photo {
     height: 150px;
   }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+.row.center {
+  align-items: center;
+}
+.col-1 {
+  flex: 1;
+}
+.col-2 {
+  flex: 2;
+}
+.block {
+  background-color: #e0e0e0;
+  padding: 2rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  margin: 3rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  border-radius: 0.5rem;
+}
+.text-right {
+  text-align: right;
+}
+img.small {
+  max-height: 8rem;
+}
+button.checkout {
+  font-size: 1rem;
+  padding: 0.2rem;
+  margin: 0.1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem #404040 solid;
+  background-color: #f0c040;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+button.addToCart {
+  background-color: cyan;
+  border-radius: 8px;
+}
+button.add {
+  background-color: #40c0f0;
+  width: 1.5rem;
+  border-radius: 8px;
+}
+button.remove {
+  background-color: #f04040;
+  width: 1.5rem;
+  border-radius: 8px;
+}
+button.badge {
+  background-color: #f04040;
+  border: none;
+  color: #ffffff;
+  width: 1.5rem;
 }

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import Menu from "./Menu";
 import Categories from "./Categories";
-import items from "../Data/items";
 import logo from "../Data/images/logo.JPG";
 
-const allCategories = ["Tất cả", ...new Set(items.map((item) => item.category))];
 
-const Home = () => {
+const Home = ({ items, onAdd, cartItems }) => {
+  const allCategories = ["Tất cả", ...new Set(items.map((item) => item.category))];
   const [menuItems, setMenuItems] = useState(items);
   const [activeCategory, setActiveCategory] = useState("");
   const [categories, setCategories] = useState(allCategories);
@@ -25,7 +24,7 @@ const Home = () => {
       <section className="menu section">
         <div className="title">
           <img src={logo} alt="logo" className="logo" />
-          <h2>Menu List</h2>
+          <h2>Thực đơn</h2>
           <div className="underline"></div>
         </div>
         <Categories
@@ -33,7 +32,7 @@ const Home = () => {
           activeCategory={activeCategory}
           filterItems={filterItems}
         />
-        <Menu items={menuItems} />
+        <Menu items={menuItems} onAdd={onAdd} cartItems={cartItems} />
       </section>
     </main>
   );
