@@ -4,21 +4,20 @@ import Categories from "./Categories";
 import logo from "../Data/images/logo.JPG";
 
 
-const Home = ({ items, onAdd, cartItems }) => {
-  const allCategories = ["Tất cả", ...new Set(items.map((item) => item.category))];
-  const [menuItems, setMenuItems] = useState(items);
+const Home = ({onAdd, isLogin, menuItems, menuSearchItems, setMenuSearchItems}) => {
+  const allCategories = ["Tất cả", ...new Set(menuItems.map((item) => item.category))];
   const [activeCategory, setActiveCategory] = useState("");
-  const [categories, setCategories] = useState(allCategories);
-
+  console.log(menuItems)
   const filterItems = (category) => {
     setActiveCategory(category);
     if (category === "Tất cả") {
-      setMenuItems(items);
+      setMenuSearchItems(menuItems);
       return;
     }
-    const newItems = items.filter((item) => item.category === category);
-    setMenuItems(newItems);
+    const newItems = menuItems.filter((item) => item.category === category);
+    setMenuSearchItems(newItems);
   };
+  
   return (
     <main>
       <section className="menu section">
@@ -28,11 +27,11 @@ const Home = ({ items, onAdd, cartItems }) => {
           <div className="underline"></div>
         </div>
         <Categories
-          categories={categories}
+          categories={allCategories}
           activeCategory={activeCategory}
           filterItems={filterItems}
         />
-        <Menu items={menuItems} onAdd={onAdd} cartItems={cartItems} />
+        <Menu items={menuSearchItems} onAdd={onAdd} isLogin={isLogin}/>
       </section>
     </main>
   );

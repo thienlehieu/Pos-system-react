@@ -1,6 +1,8 @@
 import React from "react";
+import {useNavigate} from "react-router-dom"; 
 
-const Menu = ({ items, onAdd, cartItems }) => {
+const Menu = ({items, onAdd, isLogin}) => {
+  let navigate = useNavigate()
   return (
     <div className="section-center">
       {items.map((item) => {
@@ -15,7 +17,7 @@ const Menu = ({ items, onAdd, cartItems }) => {
               </header>
               <p className="item-text">{desc}</p>
             </div>
-            <button className="addToCart" onClick={() => onAdd(item)}>Chọn mua</button>
+            <button className="addToCart" onClick={isLogin ? () => onAdd(item) :() => navigate("/login")}>Chọn mua</button>
           </article>
         );
       })}
